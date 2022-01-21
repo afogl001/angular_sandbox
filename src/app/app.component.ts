@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sandbox';
+  loadedSection = 'basic';
+
+  onNavigate(feature: string){
+    this.loadedSection = feature;
+  }
 }

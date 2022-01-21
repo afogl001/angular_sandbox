@@ -1,0 +1,34 @@
+<ng-content></ng-content>
+<div class="container">
+    <table style="border-collapse: collapse; width: 100%;" border="1">
+    <tbody>
+    <tr>
+        <td style="width: 25%;"><h2>Output Demo</h2></td>
+        <td style="width: 75%;">
+            <p>"Basics Tempalte": {{fromOutput}}</p>
+            <app-output (myOutput)="fromOutput=$event"><p>"Basics" template passing via ngContent: {{fromOutput}}</p></app-output>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 25%;"><h2>Input Demo</h2></td>
+        <td style="width: 75%">
+            <input type=text size=6 maxlength=6 value="Overwritten by ngModel" #myInputBox [(ngModel)]="inputBox"><hr>
+            <p>Note for two-way-binding, [(ngModel)]=myVar, need to import import FormsModule from '@angular/forms'; in app.module.ts</p>
+            <app-input [myInput]="myInputBox.value"><em>Input box, using local reference:</em></app-input>
+            <app-input [myInput]="inputBox"><em>Input box, direct ref to two-way binding:</em></app-input>
+            <app-input [myInput]="'Value for Input'"><em>Directly from "Input" template</em></app-input>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 25%;"><h2>ngIf Demo</h2></td>
+        <td style="width: 75%;"><app-ngif><h4>ng-content text</h4></app-ngif></td>
+    </tr>
+    <tr>
+        <td style="width: 25%;"><h2>viewChild Demo</h2></td>
+        <td style="width: 75%;"><app-view-child></app-view-child></td>
+    </tr>
+    </tbody>
+    </table>
+</div>
+
+<!--background-color: #33cccc;-->

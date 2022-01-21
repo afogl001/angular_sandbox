@@ -1,0 +1,66 @@
+<ng-content></ng-content>  <!--Takes all code passed from parent sitting between open and close component tags-->
+<div class="container">
+    <table style="border-collapse: collapse; width: 100%;" border="1">
+    <tbody>
+    <tr>
+        <td style="width: 25%;"><h2>ngIf/ngFor</h2></td>
+        <td style="width: 75%">
+            <input type="checkbox" [checked]="false" [(ngModel)]="isChecked"> Check to show list of elements...
+            <div *ngIf="isChecked">
+                <div *ngFor="let element of forLoop" [ngClass]="{background: true, textcolor: true}">
+                    {{element}}
+                </div>
+            </div>
+            <p>Toggling checkbox handled by two-way binding, [(ngModel)]="isChecked"</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 25%;"><h2>ngIf w/ Button Toggle. <br>Also uses [ngClass] and [ngStyle] for conditional styling</h2></td>
+        <td style="width: 75%;">
+            <div class="container">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <button
+                      class="btn btn-primary"
+                      (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+                    <br><br>
+                    <ul class="list-group">
+                      <div *ngIf="onlyOdd">
+                        <li
+                          class="list-group-item"
+                          [ngClass]="{background: odd % 2 !== 0}"
+                          [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'yellow' : 'grey'}"
+                          *ngFor="let odd of oddNumbers">
+                          {{odd}}
+                        </li>
+                      </div>
+                      <div *ngIf="!onlyOdd">
+                        <li
+                          class="list-group-item"
+                          [ngClass]="{background: num % 2 === 0}"
+                          [ngStyle]="{backgroundColor: num % 2 !== 0 ? 'yellow' : 'grey'}"
+                          *ngFor="let num of numbers">
+                          {{num}}
+                        </li>
+                      </div>
+                    </ul>
+                    <ng-template [ngIf]="onlyOdd">
+                      <h4>Showing only odd numbers</h4>
+                      <p>Displaying this by binding directive [ngIf]="onlyOdd" (ie, onlyOdd = true)</p>
+                      <p>Note button click toggles onlyOdd property via "onlyOdd = !onlyOdd", working as toggle for a boolean</p>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 25%;"><h2>Simple Custom Directive</h2></td>
+        <td style="width: 75%;"> <p myDirective>This paragraph is styled from a custom directive built by us! (directives.directive.ts)</p></td>
+    </tr>
+    <tr>
+        <td style="width: 25%;"><h2>Better Style Directive</h2></td>
+        <td style="width: 75%;"> <p myDirective2>This paragraph is styled from a custom directive better suited for styling (directive2.directive.ts)</p></td>
+    </tbody>
+    </table>
+</div>

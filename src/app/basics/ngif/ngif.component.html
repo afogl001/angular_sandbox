@@ -1,0 +1,5 @@
+<ng-content></ng-content>
+<button (click)="buttonClicked=true">ngIf button</button>
+<p *ngIf="buttonClicked; else defaultText">ngif works!</p>
+<ng-template #defaultText>Click to button to change me</ng-template>
+
