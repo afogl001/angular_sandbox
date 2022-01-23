@@ -44,7 +44,8 @@
                         </li>
                       </div>
                     </ul>
-                    <ng-template [ngIf]="onlyOdd">
+                    <ng-template [ngIf]="onlyOdd">  
+                    <!--This is similar to using <div *ngIf> and is essentially what the "*" part is doing in the background -->
                       <h4>Showing only odd numbers</h4>
                       <p>Displaying this by binding directive [ngIf]="onlyOdd" (ie, onlyOdd = true)</p>
                       <p>Note button click toggles onlyOdd property via "onlyOdd = !onlyOdd", working as toggle for a boolean</p>
@@ -59,8 +60,19 @@
         <td style="width: 75%;"> <p myDirective>This paragraph is styled from a custom directive built by us! (directives.directive.ts)</p></td>
     </tr>
     <tr>
-        <td style="width: 25%;"><h2>Better Style Directive</h2></td>
-        <td style="width: 75%;"> <p myDirective2>This paragraph is styled from a custom directive better suited for styling (directive2.directive.ts)</p></td>
+        <td style="width: 25%;"><h2>Interactive Style Directive<br>w/ better style implementation</h2></td>
+        <td style="width: 75%;"> <p myDirective2>This paragraph is styled from a custom directive better suited for styling (directive2.directive.ts)
+            <br>The directive uses the @HostListener decorator to capture events of "mousing over" the text.
+            <br>This text starts Grey on init, then Silver when you "mouse over", then Transparent when you "mouse away"
+        </p></td>
+    </tr>
+    <tr>
+        <td style="width: 25%;"><h2>Interactive Style Directive<br>w/ better interactive implementation</h2></td>
+        <td style="width: 75%;"> <p myDirective3>Same result as directive2.directive.ts but better suited for interactivity (directive3.directive.ts)
+            <br>The directive uses the @HostBinding decorator to simplify property bindings and remove several dependancies such as ngOnInt, ElementRef, and Renderer2
+            <br>This text starts Grey on init, then Silver when you "mouse over", then Transparent when you "mouse away"
+        </p></td>
+    </tr>
     </tbody>
     </table>
 </div>

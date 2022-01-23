@@ -1,4 +1,4 @@
-import { Directive, OnInit, Renderer2, ElementRef } from '@angular/core';
+import { Directive, OnInit, Renderer2, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[myDirective2]'
@@ -6,12 +6,23 @@ import { Directive, OnInit, Renderer2, ElementRef } from '@angular/core';
 export class MyDirective2 implements OnInit {
 
   constructor(private myRef: ElementRef, private myRenderer: Renderer2) { }
-
-  ngOnInit() {
-    this.myRenderer.setStyle(this.myRef.nativeElement, 'background-color', 'grey')
     //Type "Renderer2" has many more methods than just "setStyle"
     //setStyle takes positional arguments, a "ElementRef" object, style type, and style value. There is a forth optional argument 
     //   but it is rarely used 
+
+  ngOnInit() {
+    this.myRenderer.setStyle(this.myRef.nativeElement, 'background-color', 'grey')
+    // Initial background color on init
+  }
+
+  @HostListener('mouseenter') mouseover(eventData: Event) {
+    this.myRenderer.setStyle(this.myRef.nativeElement, 'background-color', 'silver')
+    // Background color when mouse is hovered over
+  }
+
+  @HostListener('mouseleave') mouseleave(eventData: Event) {
+    this.myRenderer.setStyle(this.myRef.nativeElement, 'background-color', 'transparent')
+    // Background once mouse moves away (note this is now default color until ngOnInit re-runs)
   }
 
 }

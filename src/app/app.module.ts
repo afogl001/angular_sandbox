@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { MyDirective } from './directives/directives.directive';
 import { MyDirective2 } from './directives/directive2.directive';
+import { MyDirective3 } from './directives/directive3.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MyDirective2 } from './directives/directive2.directive';
     HeaderComponent,
     DirectivesComponent,
     MyDirective,
-    MyDirective2
+    MyDirective2,
+    MyDirective3
   ],
   imports: [
     BrowserModule, FormsModule
