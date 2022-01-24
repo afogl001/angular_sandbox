@@ -5,7 +5,7 @@
     <tr>
         <td style="width: 25%;"><h2>ngIf/ngFor</h2></td>
         <td style="width: 75%">
-            <input type="checkbox" [checked]="false" [(ngModel)]="isChecked"> Check to show list of elements...
+            <input type="checkbox" [(ngModel)]="isChecked"> Check to show list of elements...
             <div *ngIf="isChecked">
                 <div *ngFor="let element of forLoop" [ngClass]="{background: true, textcolor: true}">
                     {{element}}
@@ -69,9 +69,27 @@
     <tr>
         <td style="width: 25%;"><h2>Interactive Style Directive<br>w/ better interactive implementation</h2></td>
         <td style="width: 75%;"> <p myDirective3>Same result as directive2.directive.ts but better suited for interactivity (directive3.directive.ts)
-            <br>The directive uses the @HostBinding decorator to simplify property bindings and remove several dependancies such as ngOnInt, ElementRef, and Renderer2
+            <br>The directive uses the @HostBinding decorator to simplify property bindings and remove several dependencies such as 
+                ngOnInt, ElementRef, and Renderer2
             <br>This text starts Grey on init, then Silver when you "mouse over", then Transparent when you "mouse away"
         </p></td>
+    </tr>
+    <tr>
+        <td style="width: 25%;"><h2>ngSwitch Example</h2></td>
+        <td style="width: 75%;">
+            <input type="radio" name="switchValue" id="first" value="1" [checked]="false" [(ngModel)]="mySwitchValue">
+            <label for="first">First Button</label><br>
+            <input type="radio" name="switchValue" id="second" value="2" [(ngModel)]="mySwitchValue">
+            <label for="second">Second Button</label><br>
+            <input type="radio" name="switchValue" id="third" value="3" [(ngModel)]="mySwitchValue">
+            <label for="third">Third Button</label> 
+            <div [ngSwitch]="mySwitchValue">
+                <p *ngSwitchCase="1">First Radio Button</p>
+                <p *ngSwitchCase="2">Second Radio Button</p>
+                <p *ngSwitchCase="3">Third Radio Button</p>
+                <p *ngSwitchDefault>No Radio Button Selected</p>
+              </div>
+        </td>
     </tr>
     </tbody>
     </table>

@@ -5,7 +5,7 @@ import { Directive, ElementRef, OnInit } from "@angular/core";
 })
 
 export class MyDirective implements OnInit {
-    constructor(private elementRef: ElementRef) {}
+    constructor(private elementRef: ElementRef) {};
 
     ngOnInit() {
         this.elementRef.nativeElement.style.backgroundColor = 'green';
