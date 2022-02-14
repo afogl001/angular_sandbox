@@ -13,6 +13,7 @@ import { DirectivesComponent } from './directives/directives.component';
 import { MyDirective } from './directives/directives.directive';
 import { MyDirective2 } from './directives/directive2.directive';
 import { MyDirective3 } from './directives/directive3.directive';
+import { MyServiceComponent } from './services/my-service/my-service.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MyDirective3 } from './directives/directive3.directive';
     DirectivesComponent,
     MyDirective,
     MyDirective2,
-    MyDirective3
+    MyDirective3,
+    MyServiceComponent
   ],
   imports: [
     BrowserModule, FormsModule
